@@ -1,16 +1,14 @@
-version: "3.8"
-
 services:
-  meilisearch:
-    image: getmeili/meilisearch:v1.5
-    restart: always
-    ports:
-      - "7700:7700"
-    environment:
-      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
-      MEILI_ENV: production
-    volumes:
-      - meili_data:/meili_data
-
-volumes:
-  meili_data:
+  - type: web
+    name: meilisearch
+    env: docker
+    plan: free
+    dockerfilePath: ""
+    buildCommand: ""
+    startCommand: ""
+    envVars:
+      - key: MEILI_MASTER_KEY
+        value: supersecret123
+      - key: MEILI_ENV
+        value: production
+    autoDeploy: true
