@@ -1,12 +1,11 @@
 services:
   - type: web
     name: meilisearch
-    env: docker
+    env: image
     plan: free
-    dockerCommand: ""  # ✅ Don't try to build
-    dockerContext: ""  # ✅ Prevent Render from using repo root
-    dockerfilePath: "" # ✅ Prevent Dockerfile lookup
-    dockerImage: getmeili/meilisearch:v1.5
+    image:
+      url: getmeili/meilisearch:v1.5
+    startCommand: ""
     envVars:
       - key: MEILI_MASTER_KEY
         value: supersecret123
