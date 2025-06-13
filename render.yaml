@@ -1,10 +1,11 @@
 services:
   - type: web
     name: meilisearch
-    plan: free
     env: docker
+    plan: free
     dockerImage: getmeili/meilisearch:v1.5
-    autoDeploy: false
+    startCommand: ""
+    autoDeploy: true
     envVars:
       - key: MEILI_MASTER_KEY
         value: supersecret123
