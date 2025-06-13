@@ -1,14 +1,14 @@
 services:
   - type: web
     name: meilisearch
-    plan: free
     env: docker
-    image: getmeili/meilisearch:v1.5
-    autoDeploy: false
+    plan: free
+    dockerCommand: ""  # ✅ Don't try to build
+    dockerContext: ""  # ✅ Prevent Render from using repo root
+    dockerfilePath: "" # ✅ Prevent Dockerfile lookup
+    dockerImage: getmeili/meilisearch:v1.5
     envVars:
       - key: MEILI_MASTER_KEY
         value: supersecret123
       - key: MEILI_ENV
         value: production
-    ports:
-      - 7700
